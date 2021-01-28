@@ -64,14 +64,12 @@ export class AppComponent {
   ]
 
   selectFloore(no) {
-    console.log(no)
     for (let i = 0; i < this.liftNo.length; i++) {
       if (this.liftNo[i].flooreNo == no) {
         this.liftNo[i].class = 'redColor';
         this.selectFlooreArray.push(this.liftNo[i].flooreNo);
       }
     }
-    console.log(this.selectFlooreArray);
   }
 
   async goMethod(go) {
@@ -96,11 +94,8 @@ export class AppComponent {
             this.go = true;
             return;
           }
-          console.log(this.selectFlooreArray)
         }
-
       }
-
     }
   }
 }

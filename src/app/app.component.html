@@ -1,19 +1,54 @@
 <div class="row">
-    <div class="col-md-6" *ngIf="go">
-        <table border="1">
+    <div class="col-md-12">Lift On Floore Number : {{flooreNoDis}}</div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>Floore Section</label>
+        <!-- <table border="1">
             <tr class="{{no.class}}" *ngFor="let no of liftNo">
                 <td (click)="selectFloore(no.flooreNo)">{{no.flooreNo}}</td>
             </tr>
             <td (click)="goMethod(go)">Go</td>
+        </table> -->
+
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">NO</th>
+                    <th scope="col">FlooreNo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let no of liftNo">
+                    <td>{{no.flooreNo}}</td>
+                    <td class="{{no.class}}" (click)="selectFloore(no.flooreNo)">FlooreNo - {{no.flooreNo}}</td>
+                </tr>
+                <!-- <td ><button (click)="goMethod(go)">GO</button></td> -->
+            </tbody>
         </table>
     </div>
-    <div>{{flooreNoDis}}</div>
+
     <div class="col-md-6">
-        <table border="1">
+        <label>Lift Section</label>
+        <!-- <table border="1">
             <tr class="{{no.class}}" *ngFor="let no of liftNo">
                 <td (click)="selectFloore(no.flooreNo)">{{no.flooreNo}}</td>
             </tr>
 
+        </table> -->
+        <table class="table"  *ngIf="go">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">NO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let no of liftNo">
+                    <td class="{{no.class}}" (click)="selectFloore(no.flooreNo)"> {{no.flooreNo}}</td>
+                </tr>
+                <td><button (click)="goMethod(go)">GO</button></td>
+            </tbody>
         </table>
     </div>
 </div>

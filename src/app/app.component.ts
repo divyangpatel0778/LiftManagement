@@ -81,21 +81,26 @@ export class AppComponent {
     } else {
       this.go = true;
     }
-    let k = 0;
     for (let i = 0; i < this.liftNo.length; i++) {
       await timer(1000);
       this.flooreNoDis = this.liftNo[i].flooreNo;
-      for (let j = 0; j < this.selectFlooreArray.length; j++) {
+      for (let j = 0; j <= this.selectFlooreArray.length; j++) {
         if (this.liftNo[i].flooreNo == this.selectFlooreArray[j]) {
           await timer(3000);
           this.liftNo[i].class = '';
-          k++;
+          const index: number = this.selectFlooreArray.indexOf(this.selectFlooreArray[j]);
+          if (index !== -1) {
+            this.selectFlooreArray.splice(index, 1);
+          }
+          if (this.selectFlooreArray.length == 0) {
+            this.go = true;
+            return;
+          }
+          console.log(this.selectFlooreArray)
         }
+
       }
-      if (this.selectFlooreArray.length == k) {
-        this.go = true;
-        break
-      }
+
     }
   }
 }
